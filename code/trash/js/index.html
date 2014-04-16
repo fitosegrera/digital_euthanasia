@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+<head>
+	<meta http-equiv="Content-type" value="text/html; charset=UTF-8" />
+	<title>Title Goes Here</title>
+	<script src='jquery-1.11.0.js'></script>
+</head>
+<body>
+	<p>This is my web page</p>
+	<script>
+		var url = "http://json-generator.appspot.com/j/bPwemdWZFe?indent=4";
+		$(document).ready(function() {
+			var id = "";
+			var obj = $.parseJSON(url);
+			$.each(obj, function() {
+				id += this['id'] + "<br/>";
+			});
+			$('span').html(id);
+		});​
+		
+	</script>
+</body>
+</html>
+
+
