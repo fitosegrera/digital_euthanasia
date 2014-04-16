@@ -1,0 +1,1 @@
+curl "https://api.spark.io/v1/devices/53ff6d065067544831330587/temperature?access_token=37c3299b493049cf53b00496dd210ee319c1d14a"

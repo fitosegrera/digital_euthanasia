@@ -1,0 +1,320 @@
+
+
+<html>
+<head>
+	<title>
+		DIGITAL EUTHANASIA
+	</title>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--////////////////////////////////Loading jquery and YoutubePopup JavaScript//////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<link type="text/css" href="style/style.css" rel="stylesheet" />
+
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////Loading google FONTS////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<link href='http://fonts.googleapis.com/css?family=Orbitron|Ubuntu+Mono' rel='stylesheet' type='text/css'>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--//////////////////////////////////////////////////CSS STYLES////////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<style type="text/css">
+		body
+		{
+			
+		} 
+		#wrapper{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 30px;
+			width:900px;
+			font-family: 'Ubuntu Mono';
+		}
+		#login{
+			margin: auto;
+			padding:0px;
+			padding-top: 10px;
+			position: relative;
+			width:400px;
+			font-family: 'Ubuntu Mono';
+		}
+		#loginButtons{
+			margin:0px auto;
+			position: relative;
+			width:300px;
+			font-family: 'Ubuntu Mono';
+		}
+		#username{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 5px;
+			position: relative;
+			width:150px;
+			font-family: 'Ubuntu Mono';
+		}
+		#password{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 5px;
+			position: relative;
+			width:150px;
+			font-family: 'Ubuntu Mono';
+		}
+		#skull{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 10px;
+			position: relative;
+			width:300px;
+			font-family: 'Ubuntu Mono';
+		}
+		#img{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 10px;
+			position: relative;
+			width:300px;
+			font-family: 'Ubuntu Mono';
+			opacity: 0.7;
+		}
+		#text{
+			padding-top: 10px;
+			padding-bottom: 0px;
+			font-size: 12px;
+		}
+		#text2{
+			margin-top: -20px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			
+		}
+		#button{
+			color:orange;
+		}
+		#button{
+			color:orange;
+		}
+		h2{
+			padding-top:0px;
+			padding-bottom: 0px;
+			font-size: 24px;
+			font-family:'Orbitron', sans-serif;
+		}
+
+		html,body {
+			margin:0;
+			height:100%
+		}
+		
+		.sky {
+			height:100%;
+			background:#007fd5;
+			position:relative;
+			overflow:hidden;
+			-webkit-animation:sky_background 50s ease-out infinite;
+			-moz-animation:sky_background 50s ease-out infinite;
+			-o-animation:sky_background 50s ease-out infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		
+		.clouds_one {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_one.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_one 50s linear infinite;
+			-moz-animation:cloud_one 50s linear infinite;
+			-o-animation:cloud_one 50s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		.clouds_two {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_two.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_two 75s linear infinite;
+			-moz-animation:cloud_two 75s linear infinite;
+			-o-animation:cloud_two 75s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		.clouds_three {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_three.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_three 100s linear infinite;
+			-moz-animation:cloud_three 100s linear infinite;
+			-o-animation:cloud_three 100s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		@-webkit-keyframes sky_background {
+			0% {
+				background:#007fd5;
+				color:#007fd5
+			}
+			
+			50% {
+				background:#000;
+				color:#a3d9ff
+			}
+			
+			100% {
+				background:#007fd5;
+				color:#007fd5
+			}
+		}
+		
+		@-webkit-keyframes cloud_one {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-webkit-keyframes cloud_two {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-webkit-keyframes cloud_three {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes sky_background {
+			0% {
+				background:#007fd5;
+				color:#007fd5
+			}
+			
+			50% {
+				background:#000;
+				color:#a3d9ff
+			}
+			
+			100% {
+				background:#007fd5;
+				color:#007fd5
+			}
+		}
+		
+		
+		@-moz-keyframes cloud_one {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes cloud_two {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes cloud_three {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+
+
+	</style>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+</head>
+<body > <!--When page loads link id = "youtubeId" is auto clicked-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->	
+	<div class="sky">
+
+		<div class="clouds_one"></div>
+
+		<div class="clouds_two"></div>
+
+		<div class="clouds_three"></div>
+		
+		<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+		<div id = "wrapper">
+			<div id = "skull">
+				<filter id="multiply">
+					<feBlend mode="multiply"/>
+				</filter>
+				<img id = "img" src="images/skull.gif" width="210" height="290">
+			</div>
+			<div id = "login">
+				<form id = "skull" name="login">
+					<div id = "skull">
+						<p align = "center"><input id = "username" type="text" name="userid"/></p>
+						<p align = "center"><input id = "password" type="password" name="pswrd"/></p>
+					</div>
+					<div id = "loginButtons">
+						<p align = "center">
+							<input id = "button" type="button" onclick="check(this.form)" value="Login"/>
+							<input id ="button" type="reset" value="Cancel"/>
+						</p>
+					</div>
+				</form>
+				<div id = "text">
+					<h2 align = "center">Digital Euthanasia</h2>
+					<p  id = "text2" align = "center">fito_segrera / 2014</p>
+				</div>
+
+			</div>
+			<script language="javascript">
+				function check(form)/*function to check userid & password*/
+				{
+					/*the following code checkes whether the entered userid and password are matching*/
+					if(form.userid.value == "fitosegrera" && form.pswrd.value == "Fito1015")
+					{
+						window.open('target.html')/*opens the target page while Id & password matches*/
+					}
+					else
+					{
+						alert("Error Password or Username")/*displays error message*/
+					}
+				}
+			</script>
+		</div>
+	</body>
+	</html>
+

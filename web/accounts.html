@@ -1,0 +1,328 @@
+
+
+<html>
+<head>
+	<title>
+		DIGITAL EUTHANASIA
+	</title>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--////////////////////////////////Loading jquery and YoutubePopup JavaScript//////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<link type="text/css" href="style/style.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.youtubepopup.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("a.youtube").YouTubePopup({ autoplay: 0 });
+		});
+	</script>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////Loading google FONTS////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<link href='http://fonts.googleapis.com/css?family=Orbitron|Ubuntu+Mono' rel='stylesheet' type='text/css'>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--//////////////////////////////////////////////////CSS STYLES////////////////////////////////////////////////-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<style type="text/css">
+		body
+		{
+			
+			background-color:#cccccc;
+		} 
+		#wrapper{
+			margin:0px auto;
+			padding:0px;
+			padding-top: 30px;
+			width:900px;
+			font-family: 'Ubuntu Mono';
+		}
+		#images{
+			
+			margin:0px auto;
+			padding:0px;
+			padding-top: 50px;
+			position: relative;
+			width:440px;
+			height:600px;
+			font-family: 'Ubuntu Mono';
+		}
+		#img{
+			vertical-align: middle;
+			padding-left: 12px;
+			padding-right: 12px;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			width:80;
+			height:80;
+			font-family: 'Ubuntu Mono';
+			display: inline-block;
+		}
+		p{
+			margin-top: 10px;	
+		}
+		#text{
+			padding-top: 50px;
+			padding-bottom: 0px;
+			font-size: 12px;
+			font-family: 'Orbitron';
+		}
+		#text2{
+			margin-top: -15px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			font-family: 'Ubuntu Mono';
+		}
+		.sky {
+			height:100%;
+			background:#007fd5;
+			position:relative;
+			overflow:hidden;
+			-webkit-animation:sky_background 50s ease-out infinite;
+			-moz-animation:sky_background 50s ease-out infinite;
+			-o-animation:sky_background 50s ease-out infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		
+		.clouds_one {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_one.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_one 50s linear infinite;
+			-moz-animation:cloud_one 50s linear infinite;
+			-o-animation:cloud_one 50s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		.clouds_two {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_two.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_two 75s linear infinite;
+			-moz-animation:cloud_two 75s linear infinite;
+			-o-animation:cloud_two 75s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		.clouds_three {
+			background:url("http://montanaflynn.me/lab/css-clouds/images/cloud_three.png");
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:300%;
+			-webkit-animation:cloud_three 100s linear infinite;
+			-moz-animation:cloud_three 100s linear infinite;
+			-o-animation:cloud_three 100s linear infinite;
+			-webkit-transform:translate3d(0,0,0);
+			-moz-transform:translate3d(0,0,0);
+			-o-transform:translate3d(0,0,0)
+		}
+		
+		@-webkit-keyframes sky_background {
+			0% {
+				background:#007fd5;
+				color:#007fd5
+			}
+			
+			50% {
+				background:#000;
+				color:#a3d9ff
+			}
+			
+			100% {
+				background:#007fd5;
+				color:#007fd5
+			}
+		}
+		
+		@-webkit-keyframes cloud_one {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-webkit-keyframes cloud_two {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-webkit-keyframes cloud_three {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes sky_background {
+			0% {
+				background:#007fd5;
+				color:#007fd5
+			}
+			
+			50% {
+				background:#000;
+				color:#a3d9ff
+			}
+			
+			100% {
+				background:#007fd5;
+				color:#007fd5
+			}
+		}
+		
+		
+		@-moz-keyframes cloud_one {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes cloud_two {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+		
+		@-moz-keyframes cloud_three {
+			0% {
+				left:0
+			}
+
+			100% {
+				left:-200%
+			}
+		}
+
+	</style>
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+</head>
+<body> 
+
+	<div class="sky">
+
+		<div class="clouds_one"></div>
+
+		<div class="clouds_two"></div>
+
+		<div class="clouds_three"></div>
+
+		<div id = "wrapper">
+			<div id = "images">
+				<div id = "img">
+					<img border="0" src="images/logos/facebook.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="facebook"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/twitter.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="twitter"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/youtube.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="youtube"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/vimeo.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="vimeo"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/skype.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="skype"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/flickr.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="flickr"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/pinterest.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="pinterest"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/googleplus.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="googleplus"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/instagram.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="instagram"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/blogger.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="blogger"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/linkedin.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="linkedin"></p>
+					</form>
+				</div>
+				<div id = "img">
+					<img border="0" src="images/logos/tumblr.png" width="80" height="80">
+					<form>
+						<p align = "center"><input align="center" type="checkbox" name="logo" value="tumblr"></p>
+					</form>
+				</div>	
+				<form>
+
+				</form>			
+				<div id = "text">
+					<h2 align = "center">Digital Euthanasia</h2>
+					<p  id = "text2" align = "center">fito_segrera / 2014</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	</html>
+

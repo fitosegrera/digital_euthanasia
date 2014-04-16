@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'https' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink /usr/bin/node
+5 verbose cache add [ 'https', null ]
+6 verbose cache add name=undefined spec="https" args=["https",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'https',
+7 verbose parsed url   path: 'https',
+7 verbose parsed url   href: 'https' }
+8 silly lockFile c3437dbc-https https
+9 verbose lock https /home/fito_segrera/.npm/c3437dbc-https.lock
+10 silly lockFile c3437dbc-https https
+11 silly lockFile c3437dbc-https https
+12 verbose addNamed [ 'https', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 421d451a-https https@
+15 verbose lock https@ /home/fito_segrera/.npm/421d451a-https.lock
+16 silly addNameRange { name: 'https', range: '*', hasData: false }
+17 verbose url raw https
+18 verbose url resolving [ 'https://registry.npmjs.org/', './https' ]
+19 verbose url resolved https://registry.npmjs.org/https
+20 info trying registry request attempt 1 at 19:10:35
+21 http GET https://registry.npmjs.org/https
+22 http 404 https://registry.npmjs.org/https
+23 silly registry.get cb [ 404,
+23 silly registry.get   { date: 'Sat, 12 Apr 2014 23:10:35 GMT',
+23 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     'cache-control': 'max-age=0',
+23 silly registry.get     'content-length': '52',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     age: '0',
+23 silly registry.get     'x-served-by': 'cache-v37-ASH',
+23 silly registry.get     'x-cache': 'MISS',
+23 silly registry.get     'x-cache-hits': '0',
+23 silly registry.get     'x-timer': 'S1397344235.877215862,VS0,VE102',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 silly lockFile 421d451a-https https@
+25 silly lockFile 421d451a-https https@
+26 error 404 'https' is not in the npm registry.
+26 error 404 You should bug the author to publish it
+26 error 404
+26 error 404 Note that you can also install from a
+26 error 404 tarball, folder, or http url, or git url.
+27 error System Linux 3.11.0-18-generic
+28 error command "/usr/bin/node" "/usr/bin/npm" "install" "https"
+29 error cwd /home/fito_segrera/Desktop/sparkio/SparkAPI-NodeJS
+30 error node -v v0.10.26
+31 error npm -v 1.4.3
+32 error code E404
+33 verbose exit [ 1, true ]
