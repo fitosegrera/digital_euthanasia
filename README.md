@@ -21,5 +21,7 @@ Repo containing all the code used on the critical design project called "Digital
 		In linux run(without the quotes): "sudo apt-get install python-tk"
 		In MacOSX please refer to: http://tkinter.unpythonic.net/wiki/How_to_install_Tkinter"
 	- "simplejson" for reading, writing and parsing json objects in python.
-		In Linux and unzip the file from the libraries folder inside: /digital_euthanasia/code/libraries. Open a terminal window, cd into the unzziped folder and type: "sudo python setup.py install"
+		In Linux and unzip the file from the libraries folder inside: /digital_euthanasia/code/libraries. Open a terminal window, cd into the unziped folder and type: "sudo python setup.py install"
 		For MACOSX installing python modules refer to: https://pypi.python.org/pypi/setuptools#unix-including-mac-os-x-curl
+	-"PIL Imaging" for managing images in python
+		In linux run "sudo apt-get install python-imaging" or unzip the file from the libraries folder inside: /digital_euthanasia/code/libraries. Open a terminal window, cd into the unzziped folder and type: "sudo python setup.py install"

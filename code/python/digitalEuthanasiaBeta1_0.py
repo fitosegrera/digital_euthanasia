@@ -8,13 +8,13 @@
 import smtplib #imports lib for sending emails 
 import sys
 from Tkinter import * #lib for GUI creation
-from PIL import ImageTk, Image #lib for importing images
+#from PIL import ImageTk, Image #lib for importing images
 
 app = Tk() #create a Tkinter object
 
 #Load images
-skullImage1 = PhotoImage(file = "images/skull.gif")
-img1 = Label(image = skullImage1, borderwidth = '0').grid(row = 0, column = 0)
+#skullImage1 = PhotoImage(file = "images/skull.gif")
+#img1 = Label(image = skullImage1, borderwidth = '0').grid(row = 0, column = 0)
 
 #photo = ImageTk.PhotoImage(skullImage).grid(row = 7, column = 0)
 
