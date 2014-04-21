@@ -1,8 +1,6 @@
 //////////////////////////////
 //COMBINATION KEY = 10, 2, 6//
 //////////////////////////////
-int wifiPin = 4;
-int piezo = 3;
 
 int pass1 = 10;
 int pass2 = 2;
@@ -23,20 +21,17 @@ int resetCount = 0;
 int resetCountVal = 5;
 int ledShiftGlobal = 0; 
 
-int counter = 0;
-unsigned int counterLight = 0;
 //----------Microphone variables------------
 const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
 unsigned int sample;
 int lastMillis = 0;
-float voltsThreshMin = 0.05; //ADJUST THIS TO CALLIBRATE THE CIRCUIT IF THE MICROPHONE IS AFFECTED BY THE ROTARY ENCODER MIN
-float voltsThreshMax = 0.9; //ADJUST THIS TO CALLIBRATE THE CIRCUIT IF THE MICROPHONE IS AFFECTED BY THE ROTARY ENCODER VAL
-int heartPin = 2;
+float voltsThresh = 0.5; //ADJUST THIS TO CALLIBRATE THE CIRCUIT IF THE MICROPHONE IS AFFECTED BY THE ROTARY ENCODER
+
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-#define ENC_A 14 //this is port Analog 0 in arduino uno
-#define ENC_B 15 //this is port Analog 1 in arduino uno
+#define ENC_A 14
+#define ENC_B 15
 #define ENC_PORT PINC
 
 //Pin definitions RGB LED toggle swith of the encoder
@@ -55,8 +50,6 @@ int datPin = 8;  // shift registers' SER pin
 int rotationSpeed = 5;  // MIN: 0, MAX: 5, 3 is a good value
 int encoderPosition;
 
-#include <Streaming.h> // LIBRARY FOR CONVERTING FROM DECIMAL TO HEX
-
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -70,8 +63,7 @@ void setup()
   digitalWrite(ENC_B, HIGH);
   Serial.begin (9600);
   Serial.println("Start");
-  pinMode(heartPin, INPUT);
-  pinMode(wifiPin, OUTPUT);
+
   ///////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////
@@ -114,12 +106,10 @@ void setup()
 
 void loop(){
   if(hearBeatSwitch == true){// KEEP CHECKING FOR HEARTBEATS
-    ledRingFillerAlive();
     heartBeats();
     digitalWrite(redPin, HIGH);
     digitalWrite(grnPin, HIGH);
     digitalWrite(bluPin, HIGH);
-    digitalWrite(wifiPin, LOW);
   }
   else{ //IF NO HEARTBEATS ARE DETECTED AFTER A CERTAIN TIME LAPSE... 
     //enter security check mode....
@@ -130,7 +120,6 @@ void loop(){
       if(deathSwitch == false){
         // If the switch is pressed...
         if (digitalRead(swhPin) == HIGH){
-          tone(piezo, 1000, 50);
           digitalWrite(redPin, LOW);
           digitalWrite(grnPin, LOW);
           digitalWrite(bluPin, LOW);
@@ -143,7 +132,6 @@ void loop(){
           //Serial.println(ledShiftGlobal);
           Serial.print("YOU PRESSED: ");
           Serial.println(comb[errorCount]);
-          noTone(piezo);
         }
         else if (digitalRead(swhPin) == LOW){
           digitalWrite(redPin, HIGH);
@@ -160,14 +148,11 @@ void loop(){
           //IF COMBINATION IS CORRECT ----------------------
           if(comb[0] == 10 && comb[1] == 2 && comb[2] == 6){
             Serial.println("CORRECT!!!!!");
-            digitalWrite(wifiPin, LOW); //do not send data to wifi board
             for(int i = 0; i < 50; i++){
-              tone(piezo, 800, 50);
               digitalWrite(redPin, LOW);
               digitalWrite(grnPin, LOW);
               digitalWrite(bluPin, LOW);
               delay(20);
-              noTone(piezo);
               digitalWrite(redPin, HIGH);
               digitalWrite(grnPin, HIGH);
               digitalWrite(bluPin, HIGH);
@@ -178,19 +163,15 @@ void loop(){
           //------------------------------------------------
           else{//IF COMBINATION IS WRONG -------------------
             Serial.println("WRONG!!!");
-            digitalWrite(wifiPin, HIGH); //send data to wifi board
-            
             for(int i = 0; i < 50; i++){
               digitalWrite(redPin, LOW);
               digitalWrite(grnPin, HIGH);
               digitalWrite(bluPin, HIGH);
-              tone(piezo, 500, 10);
               delay(20);
               digitalWrite(redPin, HIGH);
               digitalWrite(grnPin, HIGH);
               digitalWrite(bluPin, HIGH);
               delay(20);
-              noTone(piezo);
             } 
             digitalWrite(redPin, LOW);
             digitalWrite(grnPin, HIGH);
@@ -203,7 +184,7 @@ void loop(){
         int8_t tmpdata;
         /**/
         tmpdata = read_encoder();
-        if(tmpdata) {
+        if( tmpdata ) {
           //Serial.print("Counter value: ");
           //Serial.println(counter, DEC);
           counter += tmpdata;
@@ -211,15 +192,14 @@ void loop(){
         }
 
         ledRingFiller(rotationSpeed);  // Update the Bar graph LED
+
       }
       else{//IF deathSwitch == true .... if the user is considered dead...
-        tone(piezo, 500, 10000);
         ledRingFillerDeath(500);
         if (digitalRead(swhPin) == HIGH){
           resetCount = millis()%resetCountVal;
           Serial.println(resetCount);
           if(resetCount >= 4){
-            noTone(piezo);
             for(int i = 0; i < 50; i++){
               digitalWrite(redPin, LOW);
               digitalWrite(grnPin, LOW);
@@ -242,15 +222,6 @@ void loop(){
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////FUNCTIONS//////////////////////////////
 ///////////////////////////////////////////////////////////////////
-//-------------------------------------------------
-//SETUP THE REGISTER SHIFTS (FOR USE ON RESET)
-void registerSetup(){
-  // To begin, we'll turn all LEDs on the circular bar-graph OFF
-  digitalWrite(latchPin, LOW);  // first send latch low
-  shiftOut16(0x0000);
-  digitalWrite(latchPin, HIGH);  //    
-}
-
 //-----------------------------------------------------------------
 void ledRingFiller(byte rotationSpeed){
   // ledShift stores the bit position of the upper-most LED
@@ -267,9 +238,8 @@ void ledRingFiller(byte rotationSpeed){
   ledShift = encoderPosition & (0xFF >> (rotationSpeed-1));
   // ledBarFollower()
 
+  ledOutput |= 1<<ledShift;
   ledShiftGlobal = ledShift;
-  ledOutput |= 1<<ledShiftGlobal;
-
   //Serial.print("ledShift: ");
   //Serial.println(ledShift);
 
@@ -278,8 +248,7 @@ void ledRingFiller(byte rotationSpeed){
   // everything else.
   digitalWrite(latchPin, LOW);  // first send latch low
   shiftOut16(ledOutput);  // send the ledOutput value to shiftOut16
-  digitalWrite(latchPin, HIGH);  // send latch high to indicate data is done sending
- noTone(piezo); 
+  digitalWrite(latchPin, HIGH);  // send latch high to indicate data is done sending 
 }
 
 // void ledRingFollower(byte rotationSpeed) - This is one of two
@@ -306,8 +275,8 @@ void ledRingFollower(byte rotationSpeed){
     // to compensate for rotationSpeed.
     ledShift = encoderPosition & (0xFF >> (rotationSpeed-1));
     // Now divide ledShift by 16, also compensate for rotationSpeed
-    ledShiftGlobal = ledShift;
-    ledOutput = 1 << ledShiftGlobal;
+
+    ledOutput = 1 << ledShift;
   }
 
   // Now we just need to write to the shift registers. We have to
@@ -341,7 +310,7 @@ void shiftOut16(uint16_t data){
 /* returns change in encoder state (-1,0,1) */
 int8_t read_encoder(){
   static int8_t enc_states[] = {
-    0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0                                                                                                };
+    0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0                                                                                  };
   static uint8_t old_AB = 0;
   /**/
   old_AB <<= 2;                   //remember previous state
@@ -371,13 +340,13 @@ void ledRingFillerDeath(int blinkSpeed){
   }
 }
 //---------------------------------------------------------------
-//RESET THE SYSTEM
 void systemResetCorrect(){
-  digitalWrite(wifiPin, LOW);
   errorCount = -2;  
-  ledShiftGlobal = -1;
   //////
-  registerSetup();
+  unsigned int ledOutput = 0;
+  digitalWrite(latchPin, LOW);  // first send latch low
+  shiftOut16(ledOutput);  // send 0 value to shiftOut16
+  digitalWrite(latchPin, HIGH);  // first send latch low
   /////
   deathSwitch = false;
   hearBeatSwitch = true;
@@ -395,7 +364,7 @@ void heartBeats(){
   // collect data for 50 mS
   while (millis() - startMillis < sampleWindow)
   {
-    sample = analogRead(heartPin);
+    sample = analogRead(0);
     if (sample < 1024)  // toss out spurious readings
     {
       if (sample > signalMax)
@@ -410,7 +379,7 @@ void heartBeats(){
   }
   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
   double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-  if(volts > voltsThreshMin && volts < voltsThreshMax){ // && volts < 100 is a threshhold due to the voltage produced by other parts of the circuit
+  if(volts > 0.02 && volts < voltsThresh){ // && volts < 100 is a threshhold due to the voltage produced by other parts of the circuit
     Serial.print("User is alive and this is the evidence: ");
     Serial.println(volts);
     lastMillis = millis()/1000;
@@ -445,7 +414,6 @@ void initialState(int blinkSpeed){
   digitalWrite(redPin, LOW);
   digitalWrite(grnPin, HIGH);
   digitalWrite(bluPin, HIGH);
-  tone(piezo, 600, 100);
   delay(blinkSpeed);
   digitalWrite(latchPin, LOW);  // first send latch low
   ledOutput = 0;
@@ -454,51 +422,12 @@ void initialState(int blinkSpeed){
   digitalWrite(redPin, HIGH);
   digitalWrite(grnPin, HIGH);
   digitalWrite(bluPin, HIGH);
-  noTone(piezo);
   delay(blinkSpeed);
 
   if (digitalRead(swhPin) == HIGH){
     initialStatePass = true; 
   }
 }
-//---------------------------------------------------------------
-//WHILE SENSING HEART BEATS LIGHTS WILL:
-void ledRingFillerAlive(){
-  unsigned int ledOutput = 0;
-  for(int i = 0; i <16; i++){
-    ledOutput |= 1<<i;
-  }
-  digitalWrite(redPin, LOW);
-  digitalWrite(grnPin, LOW);
-  digitalWrite(bluPin, LOW);
-  counter++;
-
-  if(counter > 7){
-    digitalWrite(redPin, HIGH);
-    digitalWrite(grnPin, HIGH);
-    digitalWrite(bluPin, HIGH); 
-  }
-  if(counter > 14){
-    digitalWrite(redPin, LOW);
-    digitalWrite(grnPin, LOW);
-    digitalWrite(bluPin, LOW); 
-  }
-  if(counter > 21){
-    digitalWrite(redPin, HIGH);
-    digitalWrite(grnPin, HIGH);
-    digitalWrite(bluPin, HIGH); 
-  }
-  if(counter > 40){
-     counter = 0; 
-  }
-
-  digitalWrite(latchPin, LOW);  // first send latch lowx
-  shiftOut16(0x0000);  // send the ledOutput value to shiftOut16
-  digitalWrite(latchPin, HIGH);  // send latch high to indicate data is done sending 
-
-}
-
-
 
 
 

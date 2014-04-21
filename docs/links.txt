@@ -1,2 +1,12 @@
 TUTORIAL RBPI analog inputs
 https://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview
+
+//-------------------------------
+ROTARY ENCODERS
+http://www.circuitsathome.com/mcu/programming/reading-rotary-encoder-on-arduino
+http://playground.arduino.cc/Main/RotaryEncoders
+https://www.youtube.com/watch?v=HQuLZHsGZdI
+https://groups.google.com/forum/#!topic/tronixstuff/9gSiXPZAoeE
+http://dlnmh9ip6v2uc.cloudfront.net/datasheets/BreakoutBoards/LED_Ringcoder_Example.pde
+http://bildr.org/2012/08/rotary-encoder-arduino/
+
